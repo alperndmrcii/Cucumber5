@@ -14,7 +14,7 @@ import java.time.Duration;
 public class _01_LoginSteps {
     @Given("Navigate to Campus")
     public void navigateToCampus() {
-       // System.out.println("Merhaba 1");
+        // System.out.println("Merhaba 1");
         GWD.getDriver().get("https://test.mersys.io/");
         GWD.getDriver().manage().window().maximize();
     }
@@ -22,8 +22,8 @@ public class _01_LoginSteps {
     @When("Enter username and password and click login button")
     public void enterUsernameAndPasswordAndClickLoginButton() {
         //System.out.println("Merhaba 2");
-        DialogContent dc=new DialogContent();
-        WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
+        DialogContent dc = new DialogContent();
+        WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(dc.username));
         dc.username.sendKeys("turkeyts");
         dc.password.sendKeys("TechnoStudy123");
