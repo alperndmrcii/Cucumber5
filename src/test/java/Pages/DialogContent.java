@@ -12,6 +12,7 @@ import java.time.Duration;
 
 // POM : Page Object Model
 public class DialogContent extends Parent{
+    // kullanıcı ile dialogla veri alan bölümler
 
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(),this);
@@ -43,10 +44,36 @@ public class DialogContent extends Parent{
 
     @FindBy(xpath="//div[contains(text(),'successfully')]")
     public WebElement successMessage;
-    @FindBy(xpath ="//ms-text-field[@formcontrolname='shortName']/input")
+
+    @FindBy(xpath="//ms-text-field[@formcontrolname='shortName']/input")
     public WebElement shortName;
 
-    @FindBy(xpath ="//div[contains(text(),'already exists')]")
-    public WebElement alreadyExists;
+    @FindBy(xpath="//div[contains(text(),'already exists')]")
+    public WebElement alreadyExist;
+
+    @FindBy(xpath="(//ms-text-field/input)[1]")
+    public WebElement searchInput;
+
+    @FindBy(xpath="//ms-search-button//button")
+    public WebElement searchButton;
+
+    @FindBy(xpath="(//ms-delete-button//button)[1]")
+    public WebElement deleteImageBtn;
+
+    @FindBy(xpath="//button[@type='submit']")
+    public WebElement deleteDialogBtn;
+
+    public void deleteItem(String searchText){
+        sendKeysFunction(searchInput,searchText);
+        clickFunction(searchButton);
+        //beklet
+        //1. StaleElemetn hatası verdi : erken buldum tez kaybettim
+        //wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+
+        //fuse-progress-bar/*    bu 0 olana kadar beklet
+
+        clickFunction(deleteImageBtn);
+        clickFunction(deleteDialogBtn);
+    }
 
 }
