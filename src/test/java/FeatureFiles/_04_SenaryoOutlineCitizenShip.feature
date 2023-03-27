@@ -23,10 +23,10 @@ Feature: Citizenship Functionality
 
     Examples:
       | name     | short   |
-      | is1U3l11 | i23s111 |
-      | is1Ul12  | i2s112  |
-      | is1Ul13  | i2s113  |
-      | is1Ul14  | i2s114  |
+      | iss1U3l111 | is23s1111 |
+      | iss1Ul121  | i2ss1121  |
+      | is1Usl131  | i2ss1131  |
+      | is1Usl141  | is2s1141  |
 
 
 
