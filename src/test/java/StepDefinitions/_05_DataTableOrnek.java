@@ -32,10 +32,12 @@ public class _05_DataTableOrnek {
 
         for (int i = 0; i < listElemanlar.size(); i++) {
             System.out.println("listElemanlar = " +
-                    listElemanlar.get(i).get(0)+" "+
-                    listElemanlar.get(i).get(1) );
-                    //listElemanlar.get(i).get(2)
+                    listElemanlar.get(i).get(0)+" "+ //username
+                    listElemanlar.get(i).get(1) );   // password
+            //listElemanlar.get(i).get(2)
         }
 
     }
+
+
 }

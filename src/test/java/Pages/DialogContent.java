@@ -66,7 +66,7 @@ public class DialogContent extends Parent{
 
     public void deleteItem(String searchText){
         sendKeysFunction(searchInput,searchText);
-        clickFunction(searchButton);
+        clickFunction(searchButton);   //fuse-progress-bar/*   gözüküyor
         //beklet
         //1. StaleElemetn hatası verdi : erken buldum tez kaybettim
         //wait.until(ExpectedConditions.elementToBeClickable(searchButton));
@@ -76,6 +76,19 @@ public class DialogContent extends Parent{
 
         clickFunction(deleteImageBtn);
         clickFunction(deleteDialogBtn);
+    }
+
+    public WebElement getWebElement(String strButton){
+
+        switch (strButton)
+        {
+            case "addButton" : return addButton;
+            case "saveButton" : return saveButton;
+            case "nameInput" : return nameInput;
+            case "codeInput" : return codeInput;
+        }
+
+        return null;
     }
 
 }
