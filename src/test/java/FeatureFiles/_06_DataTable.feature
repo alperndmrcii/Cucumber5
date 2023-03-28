@@ -15,7 +15,7 @@ Feature: DataTable Functionality
       | addButton |
 
     And User sending the keys in Dialog Content
-      | nameInput | ismetUlk1 |
+      | nameInput | ismetUlk12312 |
       | codeInput | i3434     |
 
     And Click on the element in Dialog
@@ -23,6 +23,11 @@ Feature: DataTable Functionality
 
     Then Success message should be displayed
 
+    And  User delete item from dialog content
+
+      | ismetUlk12312 |
+
+    Then Success message should be displayed
 
   Scenario: Create Nationality
 
@@ -35,12 +40,14 @@ Feature: DataTable Functionality
       | addButton |
 
     And User sending the keys in Dialog Content
-      | nameInput | ismetUlk1 |
+      | nameInput | ismetUlk11551 |
 
     And Click on the element in Dialog
       | saveButton |
 
     Then Success message should be displayed
+
+
 
 
 
