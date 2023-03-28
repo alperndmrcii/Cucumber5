@@ -12,83 +12,98 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 // POM : Page Object Model
-public class DialogContent extends Parent{
+public class DialogContent extends Parent {
     // kullanıcı ile dialogla veri alan bölümler
 
     public DialogContent() {
-        PageFactory.initElements(GWD.getDriver(),this);
+        PageFactory.initElements(GWD.getDriver(), this);
     }
 
     @FindBy(css = "input[formcontrolname='username']")
     public WebElement username;
 
-    @FindBy(css="input[formcontrolname='password']")
+    @FindBy(css = "input[formcontrolname='password']")
     public WebElement password;
 
-    @FindBy(css="button[aria-label='LOGIN']")
+    @FindBy(css = "button[aria-label='LOGIN']")
     public WebElement loginButton;
 
-    @FindBy(css="span[class='mat-tooltip-trigger logo-text']")
+    @FindBy(css = "span[class='mat-tooltip-trigger logo-text']")
     public WebElement txtTechnoStudy;
 
-    @FindBy(xpath="//ms-add-button[contains(@tooltip,'ADD')]//button")
+    @FindBy(xpath = "//ms-add-button[contains(@tooltip,'ADD')]//button")
     public WebElement addButton;
 
-    @FindBy(xpath="//ms-text-field[@formcontrolname='name']/input")
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']/input")
     public WebElement nameInput;
 
-    @FindBy(xpath="//ms-text-field[@formcontrolname='code']/input")
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='code']/input")
     public WebElement codeInput;
 
-    @FindBy(xpath="//ms-save-button/button")
+    @FindBy(xpath = "//ms-save-button/button")
     public WebElement saveButton;
 
-    @FindBy(xpath="//div[contains(text(),'successfully')]")
+    @FindBy(xpath = "//div[contains(text(),'successfully')]")
     public WebElement successMessage;
 
-    @FindBy(xpath="//ms-text-field[@formcontrolname='shortName']/input")
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='shortName']/input")
     public WebElement shortName;
 
-    @FindBy(xpath="//div[contains(text(),'already exists')]")
+    @FindBy(xpath = "//div[contains(text(),'already exists')]")
     public WebElement alreadyExist;
 
-    @FindBy(xpath="(//ms-text-field/input)[1]")
+    @FindBy(xpath = "(//ms-text-field/input)[1]")
     public WebElement searchInput;
 
-    @FindBy(xpath="//ms-search-button//button")
+    @FindBy(xpath = "//ms-search-button//button")
     public WebElement searchButton;
 
-    @FindBy(xpath="(//ms-delete-button//button)[1]")
+    @FindBy(xpath = "(//ms-delete-button//button)[1]")
     public WebElement deleteImageBtn;
 
-    @FindBy(xpath="//button[@type='submit']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement deleteDialogBtn;
 
-    public void deleteItem(String searchText){
-        sendKeysFunction(searchInput,searchText);
+    public void deleteItem(String searchText) {
+        sendKeysFunction(searchInput, searchText);
         clickFunction(searchButton);   //fuse-progress-bar/*   gözüküyor
         //beklet
         //1. StaleElemetn hatası verdi : erken buldum tez kaybettim
         //wait.until(ExpectedConditions.elementToBeClickable(searchButton));
 
         //fuse-progress-bar/*    bu 0 olana kadar beklet
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//fuse-progress-bar/*") , 0));
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//fuse-progress-bar/*"), 0));
 
         clickFunction(deleteImageBtn);
         clickFunction(deleteDialogBtn);
     }
 
-    public WebElement getWebElement(String strButton){
+    public WebElement getWebElement(String strButton) {
 
-        switch (strButton)
-        {
-            case "addButton" : return addButton;
-            case "saveButton" : return saveButton;
-            case "nameInput" : return nameInput;
-            case "codeInput" : return codeInput;
+        switch (strButton) {
+            case "addButton":
+                return addButton;
+            case "saveButton":
+                return saveButton;
+            case "nameInput":
+                return nameInput;
+            case "codeInput":
+                return codeInput;
+            case "integrationCode":
+                return integrationCode;
+            case "priorityCode":
+                return priorityCode;
+            case "toggleBar":
+                return toggleBar;
         }
 
         return null;
     }
 
+    @FindBy(xpath = "//input[@data-placeholder='Integration Code']")
+    public WebElement integrationCode;
+    @FindBy(xpath = "//ms-integer-field[@formcontrolname='priority']/input")
+    public WebElement priorityCode;
+    @FindBy(xpath = "//mat-slide-toggle[@formcontrolname='active']")
+    public WebElement toggleBar;
 }
