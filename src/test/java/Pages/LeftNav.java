@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LeftNav extends Parent {
+public class LeftNav extends Parent{
     // sol taraftaki menuler burda
 
     public LeftNav() {
-        PageFactory.initElements(GWD.getDriver(), this);
+        PageFactory.initElements(GWD.getDriver(),this);
     }
 
     @FindBy(xpath = "(//span[text()='Setup'])[1]")
@@ -27,31 +27,35 @@ public class LeftNav extends Parent {
     @FindBy(xpath = "//span[text()='Nationalities']")
     private WebElement nationalities;
 
-    public WebElement getWebElement(String strButton) {
+    @FindBy(xpath = "(//span[text()='Fees'])[1]")
+    private WebElement fees;
 
-        switch (strButton) {
-            case "setup":
-                return setup;
-            case "parameters":
-                return parameters;
-            case "countries":
-                return countries;
-            case "citizenShip":
-                return citizenShip;
-            case "nationalities":
-                return nationalities;
-            case "Finance":
-                return Finance;
-            case "Fees":
-                return Fees;
+    @FindBy(xpath="(//span[text()='Entrance Exams'])[1]")
+    private WebElement entranceExamsOne;
+
+    @FindBy(xpath="(//span[text()='Setup'])[2]")
+    private WebElement setupTwo;
+
+    @FindBy(xpath="(//span[text()='Entrance Exams'])[2]")
+    private WebElement entranceExamsTwo;
+
+    public WebElement getWebElement(String strButton){
+
+        switch (strButton)
+        {
+            case "setup" : return setup;
+            case "parameters" : return parameters;
+            case "countries" : return countries;
+            case "citizenShip" : return citizenShip;
+            case "nationalities" : return nationalities;
+            case "fees" : return fees;
+            case "entranceExamsOne" : return entranceExamsOne;
+            case "setupTwo" : return setupTwo;
+            case "entranceExamsTwo" : return entranceExamsTwo;
         }
 
         return null;
     }
 
-    @FindBy(xpath = "//span[text()='Finance']")
-    public WebElement Finance;
 
-    @FindBy(xpath = "(//span[text()='Fees'])[1]")
-    public WebElement Fees;
 }
