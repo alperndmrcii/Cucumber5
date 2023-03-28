@@ -47,6 +47,11 @@ Feature: DataTable Functionality
 
     Then Success message should be displayed
 
+    And User delete item from dialog content
+    | ismetUlk11551 |
+
+    Then Success message should be displayed
+
 
 
 
