@@ -14,8 +14,8 @@ public class Hooks {
         System.out.println("Senaryo bitti");
         if (senaryo.isFailed()){
             TakesScreenshot ts=(TakesScreenshot)GWD.getDriver();
-            byte[] hafizadakiHali=ts.getScreenshotAs(OutputType.BYTES);
-            senaryo.attach(hafizadakiHali,"img/png","screen shot");
+            final byte[] hafizadakiHali=ts.getScreenshotAs(OutputType.BYTES);
+            senaryo.attach(hafizadakiHali,"image/png","screenshot name");
 
         }
 
