@@ -9,33 +9,33 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBCParent {
+
     public static Connection connection;
     public static Statement statement;
 
     @BeforeClass
-    public void DBConnectionOpen() {
+    public void DBConnectionOpen()
+    {
         String hostUrl = "jdbc:mysql://db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com:3306/sakila";
         String username = "root";
         String password = "'\"-LhCB'.%k[4S]z";
 
         try {
-
-
-            Connection connection = DriverManager.getConnection(hostUrl, username, password); // bağlantıya click yaptım
-            Statement statement = connection.createStatement(); // sorguları çalıştırmak için sorgu gönderme ortamı
-        } catch (Exception e) {
+            connection = DriverManager.getConnection(hostUrl, username, password); // bağlantıya click  1.madde
+            statement = connection.createStatement(); // sorguları çalıştırmak için sorgu gönderme ortamı
+        }catch (Exception e)
+        {
             System.out.println(e.getMessage());
         }
     }
 
     @AfterClass
-    public void DBConnectionClose() {
+    public void DBConnectionClose(){
         try {
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
 
 }
